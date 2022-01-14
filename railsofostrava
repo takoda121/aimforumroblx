@@ -937,7 +937,7 @@ Notification.newNotification("Aimforum.ml", "Injected", "Success")
 		end
 	end)
 	
-	Mods.Text = "OpenGui " .. _V
+	Mods.Text = "Aimforum " .. _V
 	
 	game.Close:Connect(function()
 		Save()
