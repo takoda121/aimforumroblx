@@ -2,8 +2,8 @@ local Notification = loadstring(game:HttpGetAsync("https://raw.githubusercontent
 Notification.newNotification("Aimforum - Success", "Injected", "Success")
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Aimforum.ml", "Ocean")
-local Tab = Window:NewTab("Universal GUI")
+local Window = Library.CreateLib("Aimforum.ml", "BloodTheme")
+local Tab = Window:NewTab("Main")--Main tab
 local Section = Tab:NewSection("Fly") --Fly sec
 Section:NewToggle("Fly", "makes you fly", function(state) --fly
     if state then
@@ -28,6 +28,9 @@ local Section = Tab:NewSection("Movement") --Movement sec
 Section:NewSlider("WalkSpeed", "Makes you go brrrrr", 500, 20, function(s) -- 500 (MaxValue) | 0 (MinValue) --Walk
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
+Section:NewKeybind("Toggle ui", "you toggle ui with this", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
 Section:NewSlider("JumpPower", "Makes you go high", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
@@ -48,3 +51,8 @@ end)
 
 tool.Parent = plr.Backpack
 end)
+local Tab = Window:NewTab("Credits") --Credits
+local Section = Tab:NewSection("Best people/sites")
+Section:NewLabel("Take#1810 -Main developer/owner")
+Section:NewLabel("v3rmillion.net -Few script from there")
+Section:NewLabel("aimforum.ml - Take#1810´s website")
