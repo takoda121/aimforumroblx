@@ -1,34 +1,18 @@
 local Notification = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/Stefanuk12/ROBLOX/master/Universal/Notifications/Script.lua"))()
 Notification.newNotification("Aimforum - Success", "Injected", "Success")
+wait(3)
+Notification.newNotification("Aimforum - Error", "FLY IS DISABLED DUE TO PATCH", "Error")
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Aimforum.ml-MHD ÚNĚTICE A OKOLÍ SPECIAL", "BloodTheme")
 local Tab = Window:NewTab("Main")--Main tab
-local Section = Tab:NewSection("Fly") --Fly sec
-Section:NewToggle("Fly", "makes you fly", function(state) --fly
-    if state then
-        loadstring(game:HttpGet(('https://pastebin.com/raw/WxmvCLLH'),true))()
-        Notification.newNotification("Aimforum - Alert", "Read the shit bellow", "Alert")
-    else
-        function log() deadpos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame end
-
-game.Players.LocalPlayer.Character.Humanoid.Died:Connect(log)
-game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
-    char:WaitForChild("Humanoid", 3).Died:Connect(log)
-    char:WaitForChild("HumanoidRootPart", 3).CFrame = deadpos
-    game.Players.LocalPlayer.Character.Head:Destroy()
-
-end)
-    end
-end)
-Section:NewLabel("disable fly? then click on it again and then reset character")
-
-    
-local Section = Tab:NewSection("Movement") --Movement sec
+local Section = Tab:NewSection("-Fly-") --Fly sec
+Section:NewLabel("fly is disabled cuz exploit is broken")
+local Section = Tab:NewSection("-Movement-") --Movement sec
 Section:NewSlider("WalkSpeed", "Makes you go brrrrr", 500, 20, function(s) -- 500 (MaxValue) | 0 (MinValue) --Walk
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
-Section:NewKeybind("Toggle ui", "you toggle ui with this", Enum.KeyCode.F, function()
+Section:NewKeybind("Toggle ui", "you toggle ui with this", Enum.KeyCode.G, function()
 	Library:ToggleUI()
 end)
 Section:NewSlider("JumpPower", "Makes you go high", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
@@ -78,10 +62,18 @@ end)
 Section:NewButton("Tesco TP", "teleports you to Tesco", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-7395.5,810.29,-846.93) --Coordinates.
 end)
+local Tab = Window:NewTab("DevTools")
+local Section = Tab:NewSection("Main")
+Section:NewButton("Cords", "cords", function()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/takoda121/fly/main/cords'),true))()
+end)
 local Tab = Window:NewTab("Credits") --Credits
 local Section = Tab:NewSection("Best people/sites")
 Section:NewLabel("Take#1810 -Main developer/owner")
 Section:NewLabel("v3rmillion.net -Few script from there")
 Section:NewLabel("aimforum.ml - Take#1810´s website")
+
+
+
 
 
